@@ -1,28 +1,12 @@
-import React, { Component, Fragment } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-import Button from './Button';
+ReactDOM.render(<App />, document.getElementById('root'));
 
-import './style.scss';
-
-class App extends Component {
-  state = {
-    counter: 0,
-  };
-
-  handleClick = () => {
-    this.setState(previousState => ({ counter: previousState.counter + 1 }));
-  };
-
-  render() {
-    return (
-      <Fragment>
-        <h1 className="title">Micro-frontends</h1>
-        <h2>{this.state.counter}</h2>
-        <Button onClick={this.handleClick}>Somar</Button>
-      </Fragment>
-    );
-  }
-}
-
-render(<App />, document.getElementById('app'));
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
